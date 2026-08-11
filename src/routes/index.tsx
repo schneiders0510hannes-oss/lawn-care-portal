@@ -344,7 +344,9 @@ function ContactSection() {
               </div>
               <div>
                 <p className="text-sm font-semibold text-foreground">Telefon</p>
-                <p className="text-sm text-muted-foreground">Bitte ergänzen Sie Ihre Nummer</p>
+                <a href="tel:+4917655033897" className="text-sm text-muted-foreground hover:text-primary">
+                  0176 55033897
+                </a>
               </div>
             </div>
             <div className="flex items-start gap-4">
@@ -353,7 +355,12 @@ function ContactSection() {
               </div>
               <div>
                 <p className="text-sm font-semibold text-foreground">E-Mail</p>
-                <p className="text-sm text-muted-foreground">Bitte ergänzen Sie Ihre E-Mail-Adresse</p>
+                <a
+                  href="mailto:schneiders0510.hannes@web.de"
+                  className="text-sm break-all text-muted-foreground hover:text-primary"
+                >
+                  schneiders0510.hannes@web.de
+                </a>
               </div>
             </div>
             <div className="flex items-start gap-4">
