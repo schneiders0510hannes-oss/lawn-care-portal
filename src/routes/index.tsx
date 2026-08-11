@@ -314,6 +314,9 @@ function ProcessSection() {
 
 function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const submit = useServerFn(submitContactRequest);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -322,10 +325,22 @@ function ContactSection() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setError(null);
+    setSending(true);
+    try {
+      await submit({ data: formData });
+      setSubmitted(true);
+    } catch {
+      setError(
+        "Ihre Anfrage konnte leider nicht gesendet werden. Bitte rufen Sie uns an: 0176 55033897",
+      );
+    } finally {
+      setSending(false);
+    }
   };
+
 
   return (
     <section id="kontakt" className="bg-cream py-16 md:py-24">
