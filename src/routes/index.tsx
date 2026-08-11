@@ -488,9 +488,12 @@ function ContactSection() {
                   placeholder="Beschreiben Sie kurz Ihr Vorhaben oder Ihren Garten..."
                 />
               </div>
-              <button type="submit" className="btn-primary w-full">
+              {error && (
+                <p className="rounded-lg bg-destructive/10 px-4 py-3 text-sm text-destructive">{error}</p>
+              )}
+              <button type="submit" disabled={sending} className="btn-primary w-full disabled:opacity-60">
                 <Mail className="h-4 w-4" />
-                Anfrage absenden
+                {sending ? "Wird gesendet..." : "Anfrage absenden"}
               </button>
               <p className="text-xs text-muted-foreground">
                 Mit dem Absenden stimmen Sie einer telefonischen oder schriftlichen Kontaktaufnahme zu.
