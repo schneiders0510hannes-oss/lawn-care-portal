@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
+import { submitContactRequest } from "@/lib/contact.functions";
 import { useState, useEffect } from "react";
 import {
   Leaf,
@@ -314,6 +316,9 @@ function ProcessSection() {
 
 function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const submit = useServerFn(submitContactRequest);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -322,10 +327,22 @@ function ContactSection() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setError(null);
+    setSending(true);
+    try {
+      await submit({ data: formData });
+      setSubmitted(true);
+    } catch {
+      setError(
+        "Ihre Anfrage konnte leider nicht gesendet werden. Bitte rufen Sie uns an: 0176 55033897",
+      );
+    } finally {
+      setSending(false);
+    }
   };
+
 
   return (
     <section id="kontakt" className="bg-cream py-16 md:py-24">
@@ -344,7 +361,9 @@ function ContactSection() {
               </div>
               <div>
                 <p className="text-sm font-semibold text-foreground">Telefon</p>
-                <p className="text-sm text-muted-foreground">Bitte ergänzen Sie Ihre Nummer</p>
+                <a href="tel:+4917655033897" className="text-sm text-muted-foreground hover:text-primary">
+                  0176 55033897
+                </a>
               </div>
             </div>
             <div className="flex items-start gap-4">
@@ -353,7 +372,12 @@ function ContactSection() {
               </div>
               <div>
                 <p className="text-sm font-semibold text-foreground">E-Mail</p>
-                <p className="text-sm text-muted-foreground">Bitte ergänzen Sie Ihre E-Mail-Adresse</p>
+                <a
+                  href="mailto:schneiders0510.hannes@web.de"
+                  className="text-sm break-all text-muted-foreground hover:text-primary"
+                >
+                  schneiders0510.hannes@web.de
+                </a>
               </div>
             </div>
             <div className="flex items-start gap-4">
@@ -464,9 +488,12 @@ function ContactSection() {
                   placeholder="Beschreiben Sie kurz Ihr Vorhaben oder Ihren Garten..."
                 />
               </div>
-              <button type="submit" className="btn-primary w-full">
+              {error && (
+                <p className="rounded-lg bg-destructive/10 px-4 py-3 text-sm text-destructive">{error}</p>
+              )}
+              <button type="submit" disabled={sending} className="btn-primary w-full disabled:opacity-60">
                 <Mail className="h-4 w-4" />
-                Anfrage absenden
+                {sending ? "Wird gesendet..." : "Anfrage absenden"}
               </button>
               <p className="text-xs text-muted-foreground">
                 Mit dem Absenden stimmen Sie einer telefonischen oder schriftlichen Kontaktaufnahme zu.
@@ -516,8 +543,16 @@ function Footer() {
           <div>
             <h3 className="font-display text-sm font-bold uppercase tracking-wide text-cream">Kontakt</h3>
             <ul className="mt-4 space-y-2 text-sm text-cream/80">
-              <li>Telefon: bitte ergänzen</li>
-              <li>E-Mail: bitte ergänzen</li>
+              <li>
+                <a href="tel:+4917655033897" className="hover:text-cream hover:underline">
+                  Telefon: 0176 55033897
+                </a>
+              </li>
+              <li className="break-all">
+                <a href="mailto:schneiders0510.hannes@web.de" className="hover:text-cream hover:underline">
+                  schneiders0510.hannes@web.de
+                </a>
+              </li>
               <li>Standort: Gillenfeld</li>
             </ul>
           </div>
