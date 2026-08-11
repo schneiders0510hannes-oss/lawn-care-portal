@@ -523,8 +523,16 @@ function Footer() {
           <div>
             <h3 className="font-display text-sm font-bold uppercase tracking-wide text-cream">Kontakt</h3>
             <ul className="mt-4 space-y-2 text-sm text-cream/80">
-              <li>Telefon: bitte ergänzen</li>
-              <li>E-Mail: bitte ergänzen</li>
+              <li>
+                <a href="tel:+4917655033897" className="hover:text-cream hover:underline">
+                  Telefon: 0176 55033897
+                </a>
+              </li>
+              <li className="break-all">
+                <a href="mailto:schneiders0510.hannes@web.de" className="hover:text-cream hover:underline">
+                  schneiders0510.hannes@web.de
+                </a>
+              </li>
               <li>Standort: Gillenfeld</li>
             </ul>
           </div>
