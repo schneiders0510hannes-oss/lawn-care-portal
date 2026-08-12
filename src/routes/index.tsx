@@ -242,7 +242,7 @@ function ServicesSection() {
           </p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
             <article key={service.title} className="card-service flex flex-col">
               <div className="aspect-[4/3] overflow-hidden">
