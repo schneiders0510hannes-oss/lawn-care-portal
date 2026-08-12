@@ -571,7 +571,7 @@ function Footer() {
             <h3 className="font-display text-sm font-bold uppercase tracking-wide text-cream">Rechtliches</h3>
             <ul className="mt-4 space-y-2 text-sm text-cream/80">
               <li>
-                <a href="#" className="hover:text-cream hover:underline">Impressum</a>
+                <Link to="/impressum" className="hover:text-cream hover:underline">Impressum</Link>
               </li>
               <li>
                 <a href="#" className="hover:text-cream hover:underline">Datenschutz</a>
