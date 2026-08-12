@@ -14,12 +14,14 @@ import {
   Scissors,
   Flower2,
   TreeDeciduous,
+  Sprout,
 } from "lucide-react";
 
 import heroImage from "../assets/hero-garden.jpg";
 import lawnImage from "../assets/service-lawn.jpg";
 import hedgeImage from "../assets/service-hedge.jpg";
 import careImage from "../assets/service-care.jpg";
+import greenSpaceImage from "../assets/service-green-space.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -151,8 +153,9 @@ function HeroSection() {
             Ihr Garten in besten Händen
           </h1>
           <p className="mt-4 text-lg text-muted-foreground md:text-xl">
-            Professionelle Gartenarbeiten von Schneiders: Rasen mähen, Hecken schneiden und
-            saisonale Gartenpflege – zuverlässig und ordentlich in Gillenfeld und naher Umgebung.
+            Professionelle Gartenarbeiten von Schneiders: Rasen mähen, Hecken schneiden,
+            Grünflächen pflegen und saisonale Gartenpflege – zuverlässig und ordentlich in
+            Gillenfeld und naher Umgebung.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a href="#kontakt" className="btn-primary">
@@ -219,6 +222,13 @@ function ServicesSection() {
       image: careImage,
       icon: <Flower2 className="h-5 w-5" />,
     },
+    {
+      title: "Grünflächen & größere Flächen",
+      description:
+        "Pflege und Mähen großer Grünflächen, Wiesen und weitläufiger Areale – auch für größere private Grundstücke und gewerbliche Flächen.",
+      image: greenSpaceImage,
+      icon: <Sprout className="h-5 w-5" />,
+    },
   ];
 
   return (
@@ -232,7 +242,7 @@ function ServicesSection() {
           </p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
             <article key={service.title} className="card-service flex flex-col">
               <div className="aspect-[4/3] overflow-hidden">
@@ -472,6 +482,7 @@ function ContactSection() {
                   <option value="rasen">Rasen mähen</option>
                   <option value="hecke">Hecken schneiden</option>
                   <option value="pflege">Gartenpflege</option>
+                  <option value="gruenflaeche">Grünflächen & größere Flächen</option>
                   <option value="sonstiges">Sonstiges</option>
                 </select>
               </div>
