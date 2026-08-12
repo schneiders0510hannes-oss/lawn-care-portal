@@ -482,6 +482,7 @@ function ContactSection() {
                   <option value="rasen">Rasen mähen</option>
                   <option value="hecke">Hecken schneiden</option>
                   <option value="pflege">Gartenpflege</option>
+                  <option value="gruenflaeche">Grünflächen & größere Flächen</option>
                   <option value="sonstiges">Sonstiges</option>
                 </select>
               </div>
