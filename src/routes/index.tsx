@@ -21,6 +21,7 @@ import heroImage from "../assets/hero-garden.jpg";
 import lawnImage from "../assets/service-lawn.jpg";
 import hedgeImage from "../assets/service-hedge.jpg";
 import careImage from "../assets/service-care.jpg";
+import greenSpaceImage from "../assets/service-green-space.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
