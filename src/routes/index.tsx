@@ -14,6 +14,7 @@ import {
   Scissors,
   Flower2,
   TreeDeciduous,
+  Sprout,
 } from "lucide-react";
 
 import heroImage from "../assets/hero-garden.jpg";
