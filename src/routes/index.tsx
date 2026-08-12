@@ -222,6 +222,13 @@ function ServicesSection() {
       image: careImage,
       icon: <Flower2 className="h-5 w-5" />,
     },
+    {
+      title: "Grünflächen & größere Flächen",
+      description:
+        "Pflege und Mähen großer Grünflächen, Wiesen und weitläufiger Areale – auch für größere private Grundstücke und gewerbliche Flächen.",
+      image: greenSpaceImage,
+      icon: <Sprout className="h-5 w-5" />,
+    },
   ];
 
   return (
