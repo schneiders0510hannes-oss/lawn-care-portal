@@ -153,8 +153,9 @@ function HeroSection() {
             Ihr Garten in besten Händen
           </h1>
           <p className="mt-4 text-lg text-muted-foreground md:text-xl">
-            Professionelle Gartenarbeiten von Schneiders: Rasen mähen, Hecken schneiden und
-            saisonale Gartenpflege – zuverlässig und ordentlich in Gillenfeld und naher Umgebung.
+            Professionelle Gartenarbeiten von Schneiders: Rasen mähen, Hecken schneiden,
+            Grünflächen pflegen und saisonale Gartenpflege – zuverlässig und ordentlich in
+            Gillenfeld und naher Umgebung.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a href="#kontakt" className="btn-primary">
