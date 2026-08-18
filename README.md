@@ -1,14 +1,18 @@
-# Welcome to your Lovable project
+# Green Scene Services
+
+Ähm, also ich möchte eine Webseite erstellen. Ich habe ein-- also Gartenarbeiten biete ich an, so Rasen mähen, Hecken schneiden. Das sind so die Main-Aufgaben. Äh, und dafür hätte ich gerne eine Webseite, damit ich online gefunden werden kann. Die soll übersichtlich sein. Ähm, die soll halt sehr ordentlich aussehen, relativ professionell. Ich baue mir das grade alles auf. Äh, vielleicht meine Dienstleistungen anzeigen, direkt ein Portal, wo sich die Leute dann anmelden, äh, also melden können. Ähm, ja.
 
 This project was built with [Lovable](https://lovable.dev).
 
+**Live app**: https://lawn-care-portal.lovable.app
+
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/1fdb3b6b-b700-4ce1-9e0a-905e222fc56f).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +24,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
