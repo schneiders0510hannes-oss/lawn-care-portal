@@ -576,7 +576,9 @@ function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-cream hover:underline">Datenschutz</a>
+                <Link to="/datenschutz" className="hover:text-cream hover:underline">
+                  Datenschutz
+                </Link>
               </li>
             </ul>
           </div>
