@@ -44,9 +44,9 @@ export const updateContactRequest = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((input: unknown) => updateSchema.parse(input))
   .handler(async ({ data, context }) => {
-    const patch: Record<string, unknown> = {};
-    if (data.status !== undefined) patch["status"] = data.status;
-    if (data.admin_note !== undefined) patch["admin_note"] = data.admin_note;
+    const patch: { status?: string; admin_note?: string } = {};
+    if (data.status !== undefined) patch.status = data.status;
+    if (data.admin_note !== undefined) patch.admin_note = data.admin_note;
 
     const { data: row, error } = await context.supabase
       .from("contact_requests")
