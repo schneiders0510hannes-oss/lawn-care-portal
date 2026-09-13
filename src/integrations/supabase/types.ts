@@ -16,6 +16,7 @@ export type Database = {
     Tables: {
       contact_requests: {
         Row: {
+          admin_note: string | null
           confirmation_status: string
           created_at: string
           email: string
@@ -25,9 +26,12 @@ export type Database = {
           notification_status: string
           phone: string | null
           service: string | null
+          status: string
           status_detail: string | null
+          updated_at: string
         }
         Insert: {
+          admin_note?: string | null
           confirmation_status?: string
           created_at?: string
           email: string
@@ -37,9 +41,12 @@ export type Database = {
           notification_status?: string
           phone?: string | null
           service?: string | null
+          status?: string
           status_detail?: string | null
+          updated_at?: string
         }
         Update: {
+          admin_note?: string | null
           confirmation_status?: string
           created_at?: string
           email?: string
@@ -49,7 +56,9 @@ export type Database = {
           notification_status?: string
           phone?: string | null
           service?: string | null
+          status?: string
           status_detail?: string | null
+          updated_at?: string
         }
         Relationships: []
       }
@@ -58,7 +67,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      is_owner: { Args: never; Returns: boolean }
     }
     Enums: {
       [_ in never]: never
