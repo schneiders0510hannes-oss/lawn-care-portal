@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { submitContactRequest } from "@/lib/contact.functions";
+import { SITE_URL, localBusinessJsonLd } from "@/lib/seo";
 import { useState, useEffect } from "react";
 import {
   Leaf,
@@ -32,7 +33,10 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: "Professionelle Gartenarbeiten in Gillenfeld und naher Umgebung. Jetzt unverbindlich anfragen." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:url", content: `${SITE_URL}/` },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/` }],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(localBusinessJsonLd) }],
   }),
   component: Index,
 });
@@ -207,6 +211,7 @@ function ServicesSection() {
         "Regelmäßiger und sauberer Schnitt für einen gesunden, dichten Rasen. Inklusive Kantenschnitt und Abhängen des Schnittguts.",
       image: lawnImage,
       icon: <Scissors className="h-5 w-5" />,
+      to: "/rasen-maehen-gillenfeld" as const,
     },
     {
       title: "Hecken schneiden",
@@ -214,6 +219,7 @@ function ServicesSection() {
         "Form- und Erhaltungsschnitt für Hecken und Sträucher. Saubere Kanten und fachgerechte Entsorgung des Schnittguts.",
       image: hedgeImage,
       icon: <TreeDeciduous className="h-5 w-5" />,
+      to: "/heckenschnitt-gillenfeld" as const,
     },
     {
       title: "Gartenpflege",
@@ -221,6 +227,7 @@ function ServicesSection() {
         "Saisonale Pflegearbeiten wie Unkraut entfernen, Beete säubern, Düngen und Pflanzen schneiden – damit Ihr Garten das ganze Jahr über strahlt.",
       image: careImage,
       icon: <Flower2 className="h-5 w-5" />,
+      to: "/gartenpflege-gillenfeld" as const,
     },
     {
       title: "Grünflächen & größere Flächen",
@@ -228,6 +235,7 @@ function ServicesSection() {
         "Pflege und Mähen großer Grünflächen, Wiesen und weitläufiger Areale – auch für größere private Grundstücke und gewerbliche Flächen.",
       image: greenSpaceImage,
       icon: <Sprout className="h-5 w-5" />,
+      to: "/gartenpflege-gillenfeld" as const,
     },
   ];
 
@@ -269,6 +277,9 @@ function ServicesSection() {
                 >
                   Anfragen stellen <span aria-hidden="true">→</span>
                 </a>
+                <Link to={service.to} className="mt-2 text-sm text-muted-foreground hover:text-primary hover:underline">
+                  Mehr zu {service.title}
+                </Link>
               </div>
             </article>
           ))}
@@ -565,6 +576,9 @@ function Footer() {
                 </a>
               </li>
               <li>Standort: Gillenfeld</li>
+              <li><Link to="/rasen-maehen-gillenfeld" className="hover:text-cream hover:underline">Rasen mähen Gillenfeld</Link></li>
+              <li><Link to="/heckenschnitt-gillenfeld" className="hover:text-cream hover:underline">Heckenschnitt Gillenfeld</Link></li>
+              <li><Link to="/gartenpflege-gillenfeld" className="hover:text-cream hover:underline">Gartenpflege Gillenfeld</Link></li>
             </ul>
           </div>
           <div>

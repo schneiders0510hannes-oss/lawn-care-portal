@@ -13,7 +13,10 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as DatenschutzRouteImport } from './routes/datenschutz'
+import { Route as GartenpflegeGillenfeldRouteImport } from './routes/gartenpflege-gillenfeld'
+import { Route as HeckenschnittGillenfeldRouteImport } from './routes/heckenschnitt-gillenfeld'
 import { Route as ImpressumRouteImport } from './routes/impressum'
+import { Route as RasenMaehenGillenfeldRouteImport } from './routes/rasen-maehen-gillenfeld'
 import { Route as AuthenticatedAnfragenRouteImport } from './routes/_authenticated/anfragen'
 
 const IndexRoute = IndexRouteImport.update({
@@ -35,9 +38,24 @@ const DatenschutzRoute = DatenschutzRouteImport.update({
   path: '/datenschutz',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GartenpflegeGillenfeldRoute = GartenpflegeGillenfeldRouteImport.update({
+  id: '/gartenpflege-gillenfeld',
+  path: '/gartenpflege-gillenfeld',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HeckenschnittGillenfeldRoute = HeckenschnittGillenfeldRouteImport.update({
+  id: '/heckenschnitt-gillenfeld',
+  path: '/heckenschnitt-gillenfeld',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ImpressumRoute = ImpressumRouteImport.update({
   id: '/impressum',
   path: '/impressum',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RasenMaehenGillenfeldRoute = RasenMaehenGillenfeldRouteImport.update({
+  id: '/rasen-maehen-gillenfeld',
+  path: '/rasen-maehen-gillenfeld',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthenticatedAnfragenRoute = AuthenticatedAnfragenRouteImport.update({
@@ -50,14 +68,20 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/datenschutz': typeof DatenschutzRoute
+  '/gartenpflege-gillenfeld': typeof GartenpflegeGillenfeldRoute
+  '/heckenschnitt-gillenfeld': typeof HeckenschnittGillenfeldRoute
   '/impressum': typeof ImpressumRoute
+  '/rasen-maehen-gillenfeld': typeof RasenMaehenGillenfeldRoute
   '/anfragen': typeof AuthenticatedAnfragenRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/datenschutz': typeof DatenschutzRoute
+  '/gartenpflege-gillenfeld': typeof GartenpflegeGillenfeldRoute
+  '/heckenschnitt-gillenfeld': typeof HeckenschnittGillenfeldRoute
   '/impressum': typeof ImpressumRoute
+  '/rasen-maehen-gillenfeld': typeof RasenMaehenGillenfeldRoute
   '/anfragen': typeof AuthenticatedAnfragenRoute
 }
 export interface FileRoutesById {
@@ -66,21 +90,43 @@ export interface FileRoutesById {
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/auth': typeof AuthRoute
   '/datenschutz': typeof DatenschutzRoute
+  '/gartenpflege-gillenfeld': typeof GartenpflegeGillenfeldRoute
+  '/heckenschnitt-gillenfeld': typeof HeckenschnittGillenfeldRoute
   '/impressum': typeof ImpressumRoute
+  '/rasen-maehen-gillenfeld': typeof RasenMaehenGillenfeldRoute
   '/_authenticated/anfragen': typeof AuthenticatedAnfragenRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/auth' | '/datenschutz' | '/impressum' | '/anfragen'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/datenschutz'
+    | '/gartenpflege-gillenfeld'
+    | '/heckenschnitt-gillenfeld'
+    | '/impressum'
+    | '/rasen-maehen-gillenfeld'
+    | '/anfragen'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth' | '/datenschutz' | '/impressum' | '/anfragen'
+  to:
+    | '/'
+    | '/auth'
+    | '/datenschutz'
+    | '/gartenpflege-gillenfeld'
+    | '/heckenschnitt-gillenfeld'
+    | '/impressum'
+    | '/rasen-maehen-gillenfeld'
+    | '/anfragen'
   id:
     | '__root__'
     | '/'
     | '/_authenticated'
     | '/auth'
     | '/datenschutz'
+    | '/gartenpflege-gillenfeld'
+    | '/heckenschnitt-gillenfeld'
     | '/impressum'
+    | '/rasen-maehen-gillenfeld'
     | '/_authenticated/anfragen'
   fileRoutesById: FileRoutesById
 }
@@ -89,7 +135,10 @@ export interface RootRouteChildren {
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AuthRoute: typeof AuthRoute
   DatenschutzRoute: typeof DatenschutzRoute
+  GartenpflegeGillenfeldRoute: typeof GartenpflegeGillenfeldRoute
+  HeckenschnittGillenfeldRoute: typeof HeckenschnittGillenfeldRoute
   ImpressumRoute: typeof ImpressumRoute
+  RasenMaehenGillenfeldRoute: typeof RasenMaehenGillenfeldRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -122,11 +171,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DatenschutzRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/gartenpflege-gillenfeld': {
+      id: '/gartenpflege-gillenfeld'
+      path: '/gartenpflege-gillenfeld'
+      fullPath: '/gartenpflege-gillenfeld'
+      preLoaderRoute: typeof GartenpflegeGillenfeldRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/heckenschnitt-gillenfeld': {
+      id: '/heckenschnitt-gillenfeld'
+      path: '/heckenschnitt-gillenfeld'
+      fullPath: '/heckenschnitt-gillenfeld'
+      preLoaderRoute: typeof HeckenschnittGillenfeldRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/impressum': {
       id: '/impressum'
       path: '/impressum'
       fullPath: '/impressum'
       preLoaderRoute: typeof ImpressumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rasen-maehen-gillenfeld': {
+      id: '/rasen-maehen-gillenfeld'
+      path: '/rasen-maehen-gillenfeld'
+      fullPath: '/rasen-maehen-gillenfeld'
+      preLoaderRoute: typeof RasenMaehenGillenfeldRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_authenticated/anfragen': {
@@ -155,7 +225,10 @@ const rootRouteChildren: RootRouteChildren = {
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AuthRoute: AuthRoute,
   DatenschutzRoute: DatenschutzRoute,
+  GartenpflegeGillenfeldRoute: GartenpflegeGillenfeldRoute,
+  HeckenschnittGillenfeldRoute: HeckenschnittGillenfeldRoute,
   ImpressumRoute: ImpressumRoute,
+  RasenMaehenGillenfeldRoute: RasenMaehenGillenfeldRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
